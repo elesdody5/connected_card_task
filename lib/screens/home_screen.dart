@@ -26,7 +26,6 @@ class _HomeScreenState extends State<HomeScreen> {
     return StreamBuilder<AccelerometerEvent>(
       stream: _speedProvider.calculateAcceleration(),
       builder: (context, snapshot) {
-        print(snapshot.data.x);
         int acceleration = snapshot.hasData ? snapshot.data.x.toInt() : 0;
         print(acceleration);
         double time = acceleration != 0 ? (20 / 3.6) / acceleration : 0;
