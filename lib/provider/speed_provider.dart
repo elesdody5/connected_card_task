@@ -1,7 +1,6 @@
 import 'dart:async';
 
 import 'package:location/location.dart';
-import 'package:sensors/sensors.dart';
 
 class SpeedProvider {
   Location _location = new Location();
@@ -32,9 +31,5 @@ class SpeedProvider {
 // get the device speed
   Stream<LocationData> getCarSpeedStream() {
     return _location.onLocationChanged;
-  }
-
-  Stream<AccelerometerEvent> calculateAcceleration() {
-    return accelerometerEvents;
   }
 }
