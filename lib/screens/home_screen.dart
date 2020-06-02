@@ -82,23 +82,26 @@ class _HomeScreenState extends State<HomeScreen> {
         ));
   }
 
+  void _initTimer() {
+    if (_timer != null) _timer.cancel();
+    _start = 0;
+  }
+
   void _startCounting() {
     _showToast();
-    _start = 0;
+    _initTimer();
     const oneSec = const Duration(seconds: 1);
     _timer = new Timer.periodic(oneSec, (Timer timer) => _start = _start + 1);
   }
 
   void _endCountFrom10To30() {
     if (_start != 0) _from10_30 = _start;
-    if (_timer != null) _timer.cancel();
-    _start = 0;
+    _initTimer();
   }
 
   void _endCountFrom30To10() {
     if (_start != 0) _from30_10 = _start;
-    if (_timer != null) _timer.cancel();
-    _start = 0;
+    _initTimer();
   }
 
   void _showToast() {
